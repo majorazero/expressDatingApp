@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 app.get("/",function(req,res){
   res.sendFile(path.join(__dirname,"app/public/home.html"));
 });
+app.get("/images/fire.gif",function(req,res){
+  res.sendFile(path.join(__dirname,"app/public/images/fire.gif"));
+})
 app.get('/survey',function(req,res){
   res.sendFile(path.join(__dirname,"app/public/survey.html"));
 });
