@@ -53,4 +53,7 @@ for(let i = 0; i < questions.length; i++){
   }
   newDiv.append(newSelect);
   $("#questionaire").append(newDiv);
+  if(i === questions.length-1){
+    $("#questionaire").append("<button type='submit' formmethod='post' class='btn btn-primary'>Submit</button>");
+  }
 }
