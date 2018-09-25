@@ -2,20 +2,18 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
-require("./app/routing/apiRouting.js");
-require("./app/routing/htmlRoutes.js");
+// require("./app/routing/apiRouting.js");
+// require("./app/routing/htmlRoutes.js");
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static('app'));
 
 //htmlRoutes
 app.get("/",function(req,res){
   res.sendFile(path.join(__dirname,"app/public/home.html"));
 });
-app.get("/images/fire.gif",function(req,res){
-  res.sendFile(path.join(__dirname,"app/public/images/fire.gif"));
-})
 app.get('/survey',function(req,res){
   res.sendFile(path.join(__dirname,"app/public/survey.html"));
 });
