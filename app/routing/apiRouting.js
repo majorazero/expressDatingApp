@@ -11,9 +11,16 @@ module.exports = function (app){
     let compatability = 10000;
     let soulmateIndex = -1;
     for(let i = 0; i < friends.friendsDatabase.length; i++){
-      if(Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue())<compatability){
-        compatability = Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue());
-        soulmateIndex = i;
+      if(friends.friendsDatabase[i].name === newEntry.name){
+        //we found a guy with the same name, so we'll replace him
+        friends.friendsDatabase[i] = newEntry;
+        return res.json([newEntry,"nope"]);
+      }
+      else {
+        if(Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue())<compatability){
+          compatability = Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue());
+          soulmateIndex = i;
+        }
       }
     }
     //your mate!
@@ -23,7 +30,3 @@ module.exports = function (app){
     return res.json([friends.friendsDatabase[soulmateIndex],compatability]);
   });
 };
-
-//check for unique name validation
-//heroku deploy
-//gif video

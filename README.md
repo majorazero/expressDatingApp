@@ -6,9 +6,8 @@ If you want to serve the file locally, after you run `npm install` just run  `no
 
 # App Basics
 - The app is basically a survey you can take that can help you find a mate base on what we have in our mock database. Multiple usage of the app will grow the database, making it more likely for your future entries to help you find a mate.
+- Unanswered questions will be given 0 points.
 - It's not broken, the design choice is intentional.
-
-# Watch It In Action
 
 # Built With
 - HTML
