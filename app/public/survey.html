@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
+  <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">We found a match!</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="soulBod">
+      </div>
+    </div>
+  </div>
+</div>
   <div class = "container">
     <div class = "row">
       <div class = "col-md-12">
@@ -40,6 +54,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="./javascript/questions.js"></script>
   <script>
     $("#questionaire").on("submit",function(event){
@@ -53,14 +68,23 @@
           answersArray.push(parseInt($("#q"+(i+1)).val()));
         }
       }
+      let photoUrl = $("#photoInp").val();
+      if(photoUrl === ""){
+        photoUrl = "https://picsum.photos/200/300?image=55";
+      }
       let obj = {
         name: $("#nameInp").val() ,
         score: answersArray,
-        photo: $("#photoInp").val()
+        photo: photoUrl
       }
       console.log(obj);
-      $.post("/api/friends",obj,function(data){
-
+      $.post("/api/friends",obj).then(function(data){
+        console.log(data);
+        $("#soulBod").empty();
+        $("#soulBod").append("<h1>Your soulmate is..."+data[0].name+"!</h1>");
+        $("#soulBod").append("<img src='"+data[0].picture+"' alt='' />");
+        $("#soulBod").append("<h2>Your have "+((40-data[1])/40)*100+"% match!</h2>");
+        $("#matchModal").modal('show');
       });
     })
   </script>

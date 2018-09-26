@@ -21,16 +21,14 @@ app.get('/survey',function(req,res){
 
 //apiRoutes.js
 app.get("/api/friends",function(req,res){
-  res.json({message:"You've hit friends!"});
-
+  res.json(friends.friendsDatabase);
 });
 app.post("/api/friends",function(req,res){
-  console.log(req.body);
-  let newEntry = new friends.Friend(req.body.name,req.body.score);
+  let newEntry = new friends.Friend(req.body.name,req.body.score,req.body.photo);
   //handles compatability
   let compatability = 10000;
   let soulmateIndex = -1;
-  for(let i = 0; i <friends.friendsDatabase.length; i++){
+  for(let i = 0; i < friends.friendsDatabase.length; i++){
     if(Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue())<compatability){
       compatability = Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue());
       soulmateIndex = i;
@@ -40,7 +38,7 @@ app.post("/api/friends",function(req,res){
   console.log(friends.friendsDatabase[soulmateIndex],compatability);
   //data now stored
   friends.friendsDatabase.push(newEntry);
-  res.json({message:"You've posted friends!"});
+  return res.json([friends.friendsDatabase[soulmateIndex],compatability]);
 });
 
 

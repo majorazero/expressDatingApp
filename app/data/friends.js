@@ -13,8 +13,8 @@ const Friend = function(name,score,pic){
 
 let friendsDatabase = [];
 
-friendsDatabase.push(new Friend("Jane",[4,3,2,1,3,2,3,4,2,2]));
-friendsDatabase.push(new Friend("Marley",[3,2,1,4,1,3,4,1,1,1]));
+friendsDatabase.push(new Friend("Jane",[4,3,2,1,3,2,3,4,2,2],"https://picsum.photos/200/300?image=0"));
+friendsDatabase.push(new Friend("Marley",[3,2,1,4,1,3,4,1,1,1],"https://picsum.photos/200/300?image=1"));
 
 module.exports = {
   friendsDatabase,
