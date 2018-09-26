@@ -23,3 +23,7 @@ module.exports = function (app){
     return res.json([friends.friendsDatabase[soulmateIndex],compatability]);
   });
 };
+
+//check for unique name validation
+//heroku deploy
+//gif video

@@ -9,8 +9,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'app')));
 
 
-require("./app/routing/htmlRoutes.js")(app);
 require("./app/routing/apiRouting.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
+
 
 
 app.listen(PORT,function(){
