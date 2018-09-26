@@ -55,12 +55,20 @@
   left: 50px;
   width:140px;
   transform: rotate(20deg);
+  animation: fadeIn 5s infinite;
+}
+@keyframes fadeIn{
+    0% {opacity: 1;}
+    50% {opacity: .7;}
+    100% {opacity: 1;}
 }
 .ques9:hover{
   background-color: #bdb4c1;
   transform: rotate(20.05deg);
   width:141px;
+  animation: fadeIn 5s infinite;
 }
 .ques9:hover h3{
   font-size: 23px;
+  line-height: 1.0;
 }

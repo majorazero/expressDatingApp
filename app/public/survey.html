@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
               <h2>Photo</h2>
-              <input type="text" id="nameInp" class="form-control" placeholder="Enter your Photo link!">
+              <input type="text" id="photoInp" class="form-control" placeholder="Enter your Photo link!">
             </div>
           </div>
           <!-- make questions here -->
@@ -40,7 +40,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <script src="../javascript/questions.js"></script>
+  <script src="./javascript/questions.js"></script>
   <script>
     $("#questionaire").on("submit",function(event){
       event.preventDefault();
@@ -53,12 +53,15 @@
           answersArray.push(parseInt($("#q"+(i+1)).val()));
         }
       }
-      console.log(answersArray);
-      // let obj = {};
-      // $.post("/api/friends",obj,function(req,res){
-      //   res.json("Match found!");
-      // });
-      console.log("Yeah!");
+      let obj = {
+        name: $("#nameInp").val() ,
+        score: answersArray,
+        photo: $("#photoInp").val()
+      }
+      console.log(obj);
+      $.post("/api/friends",obj,function(data){
+
+      });
     })
   </script>
 </body>
