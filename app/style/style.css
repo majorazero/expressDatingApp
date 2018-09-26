@@ -1,0 +1,66 @@
+.cardName {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #d1d0cf;
+}
+.form-group {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #c2bac6;
+  margin: 10px;
+}
+
+.ques6 h2{
+  background: -webkit-linear-gradient(#a54dd1, #403744);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ques6 h3{
+  background: -webkit-linear-gradient(#403744, #56706b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ques7{
+  background-color: #4f3034;
+  color: white;
+  transform: rotate(-1.2deg);
+}
+.ques7 h2 {
+  background: -webkit-linear-gradient(#56706b, #590310);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ques7 h3 {
+  background: -webkit-linear-gradient(#69e59d, #c9122d);
+  -webkit-background-clip: text;
+
+}
+.ques8{
+  padding-left: 130px;
+}
+.ques8 h2,{
+  background: -webkit-linear-gradient(#4286f4, #243359);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ques8 h3{
+  background: -webkit-linear-gradient(#243359, #4286f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ques8, .ques8 select{
+  background-color: #748ecc;
+}
+.ques9 {
+  left: 50px;
+  width:140px;
+  transform: rotate(20deg);
+}
+.ques9:hover{
+  background-color: #bdb4c1;
+  transform: rotate(20.05deg);
+  width:141px;
+}
+.ques9:hover h3{
+  font-size: 23px;
+}

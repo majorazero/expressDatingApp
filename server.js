@@ -38,6 +38,7 @@ app.post("/api/friends",function(req,res){
   }
   //your mate!
   console.log(friends.friendsDatabase[soulmateIndex],compatability);
+  //data now stored
   friends.friendsDatabase.push();
   res.json({message:"You've posted friends!"});
 });

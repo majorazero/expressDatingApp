@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Survey</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
   <div class = "container">
@@ -20,18 +21,17 @@
     <div class = "row">
       <div class = "col-md-12">
         <form action="submit" id="questionaire">
+          <div class="cardName">
+            <div class="form-group">
+              <h2>Name</h2>
+              <input type="text" id="nameInp" class="form-control" placeholder="Enter your Name please!">
+            </div>
+            <div class="form-group">
+              <h2>Photo</h2>
+              <input type="text" id="nameInp" class="form-control" placeholder="Enter your Photo link!">
+            </div>
+          </div>
           <!-- make questions here -->
-          <!-- <div class="form-group">
-            <h2>Question 1</h2>
-            <h3>What is your spirit animal?</h3>
-            <select class="form-control" id="q1">
-              <option value="" disabled selected>Select your option</option>
-              <option value="1">A seal.</option>
-              <option value="2">My animal isn't on here.</option>
-              <option value="3">What's an animal?</option>
-              <option value="4">Goddamit, this is stupid.</option>
-            </select>
-          </div> -->
         </form>
       </div>
     </div>
@@ -41,5 +41,25 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="../javascript/questions.js"></script>
+  <script>
+    $("#questionaire").on("submit",function(event){
+      event.preventDefault();
+      let answersArray = [];
+      for(let i = 0; i < 10; i++){
+        if($("#q"+(i+1)).val() === ""){
+          answersArray.push(0);
+        }
+        else {
+          answersArray.push(parseInt($("#q"+(i+1)).val()));
+        }
+      }
+      console.log(answersArray);
+      // let obj = {};
+      // $.post("/api/friends",obj,function(req,res){
+      //   res.json("Match found!");
+      // });
+      console.log("Yeah!");
+    })
+  </script>
 </body>
 </html>

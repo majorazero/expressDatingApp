@@ -42,7 +42,7 @@ const questions = [
 ];
 
 for(let i = 0; i < questions.length; i++){
-  let newDiv = $("<div>").addClass("form-group");
+  let newDiv = $("<div>").addClass("form-group ques"+(i+1));
   let newSelect = $("<select>").addClass("form-control").attr("id","q"+(i+1));
   newSelect.append("<option value='' disable selected>Select Your Options</option>");
   newDiv.append("<h2>Question "+(i+1)+"</h2>");
