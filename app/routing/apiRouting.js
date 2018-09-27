@@ -17,8 +17,8 @@ module.exports = function (app){
         return res.json([newEntry,"nope"]);
       }
       else {
-        if(Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue())<compatability){
-          compatability = Math.abs(friends.friendsDatabase[i].scoreValue()-newEntry.scoreValue());
+        if(friends.friendsDatabase[i].scoreValue(newEntry.score) < compatability){
+          compatability = friends.friendsDatabase[i].scoreValue(newEntry.score);
           soulmateIndex = i;
         }
       }
